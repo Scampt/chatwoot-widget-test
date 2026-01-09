@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Jousfit – Landing (PRUEBAS)</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <style>
+      :root {
+        --pink-main: #e83f83;
+        --pink-soft: #f7d6e4;
+        --gray-dark: #2b2b2b;
+        --gray-mid: #6b6b6b;
+        --gray-light: #f4f4f4;
+        --white: #ffffff;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Helvetica Neue", Arial, sans-serif;
+      }
+
+      body {
+        color: var(--gray-dark);
+        background: var(--white);
+        line-height: 1.4;
+      }
+
+      a {
+        text-decoration: none;
+        color: inherit;
+      }
+
+      /* ===== HEADER ===== */
+      header {
+        background: var(--pink-main);
+        color: var(--white);
+        padding: 14px 40px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 12px;
+      }
+
+      .nav-left,
+      .nav-right {
+        display: flex;
+        gap: 22px;
+        font-size: 14px;
+        font-weight: 500;
+        flex-wrap: wrap;
+      }
+
+      .logo {
+        font-weight: 800;
+        letter-spacing: 1px;
+      }
+
+      /* ===== HERO ===== */
+      .hero {
+        background: linear-gradient(
+          to bottom,
+          var(--pink-main),
+          var(--pink-soft)
+        );
+        padding: 40px 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .hero-image {
+        width: 100%;
+        max-width: 1100px;
+        height: 420px;
+        background: #d9d9d9;
+        border-radius: 4px;
+      }
+
+      /* ===== SECTION BASE ===== */
+      section {
+        padding: 60px 20px;
+        max-width: 1200px;
+        margin: auto;
+      }
+
+      .two-cols {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 40px;
+        align-items: center;
+      }
+
+      .img-placeholder {
+        width: 100%;
+        height: 320px;
+        background: #dedede;
+        border-radius: 4px;
+      }
+
+      h2 {
+        color: var(--pink-main);
+        font-size: 22px;
+        font-weight: 800;
+        margin-bottom: 16px;
+        text-transform: uppercase;
+      }
+
+      p {
+        color: var(--gray-mid);
+        margin-bottom: 20px;
+        font-size: 15px;
+      }
+
+      .btn {
+        display: inline-block;
+        background: var(--pink-main);
+        color: var(--white);
+        padding: 12px 26px;
+        font-size: 13px;
+        font-weight: 700;
+        border-radius: 20px;
+        text-transform: uppercase;
+      }
+
+      /* ===== PRODUCTS GRID ===== */
+      .section-title {
+        text-align: center;
+        margin-bottom: 40px;
+      }
+
+      .products-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 24px;
+      }
+
+      .product-card {
+        background: var(--gray-light);
+        padding: 14px;
+        text-align: center;
+      }
+
+      .product-img {
+        height: 160px;
+        background: #cfcfcf;
+        margin-bottom: 12px;
+      }
+
+      .product-title {
+        font-size: 13px;
+        font-weight: 600;
+        margin-bottom: 6px;
+      }
+
+      .price {
+        font-size: 13px;
+        font-weight: 700;
+        color: var(--pink-main);
+      }
+
+      .see-more {
+        display: flex;
+        justify-content: center;
+        margin-top: 30px;
+      }
+
+      /* ===== NEWSLETTER ===== */
+      .newsletter {
+        background: var(--pink-soft);
+        text-align: center;
+        padding: 50px 20px;
+      }
+
+      .newsletter input {
+        padding: 12px 14px;
+        width: 260px;
+        max-width: 100%;
+        border: none;
+        margin-bottom: 12px;
+      }
+
+      /* ===== FOOTER ===== */
+      footer {
+        background: var(--white);
+        padding: 50px 20px 20px;
+        border-top: 1px solid #eee;
+      }
+
+      .footer-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 30px;
+        margin-bottom: 30px;
+      }
+
+      footer h4 {
+        font-size: 13px;
+        font-weight: 800;
+        margin-bottom: 14px;
+      }
+
+      footer ul {
+        list-style: none;
+        font-size: 13px;
+        color: var(--gray-mid);
+      }
+
+      footer li {
+        margin-bottom: 6px;
+      }
+
+      .footer-bottom {
+        text-align: center;
+        font-size: 12px;
+        color: var(--gray-mid);
+        margin-top: 20px;
+      }
+
+      /* ===== RESPONSIVE ===== */
+      @media (max-width: 900px) {
+        .two-cols {
+          grid-template-columns: 1fr;
+        }
+
+        .products-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+
+        .footer-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+
+      @media (max-width: 480px) {
+        header {
+          justify-content: center;
+          text-align: center;
+        }
+
+        .products-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .btn {
+          width: 100%;
+          text-align: center;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- HEADER -->
+    <header>
+      <div class="nav-left">
+        <span>Inicio</span>
+        <span>Nosotros</span>
+        <span>Tienda</span>
+        <span>Cápsulas Jousfit4u</span>
+        <span>Contacto</span>
+      </div>
+      <div class="logo">JOUSFIT PRUEBAS - WIDGET</div>
+      <div class="nav-right">
+        <span>Búsqueda</span>
+        <span>0</span>
+      </div>
+    </header>
+
+    <!-- HERO -->
+    <div class="hero">
+      <div class="hero-image"></div>
+    </div>
+
+    <!-- CAPSULAS -->
+    <section class="two-cols">
+      <div class="img-placeholder"></div>
+      <div>
+        <h2>¿Qué son las cápsulas Jousfit 4U?</h2>
+        <p>
+          Estas son un suplemento alimenticio enriquecido con alimentos 100% que
+          mejorarán tu digestión, saciedad y salud gastro intestinal.
+        </p>
+        <a class="btn">Más información</a>
+      </div>
+    </section>
+
+    <!-- NUEVOS PRODUCTOS -->
+    <section class="two-cols">
+      <div>
+        <h2>¿Ya conoces nuestros nuevos productos?</h2>
+        <p>
+          En Jousfit sabemos que lo más importante para ti es tu salud, así que
+          traemos nuevos y mejores productos para tu rutina diaria.
+        </p>
+        <a class="btn">Comprar ahora</a>
+      </div>
+      <div class="img-placeholder"></div>
+    </section>
+
+    <!-- PROGRAMAS -->
+    <section>
+      <div class="section-title">
+        <h2>Programas de entrenamiento</h2>
+      </div>
+
+      <div class="products-grid">
+        <div class="product-card">
+          <div class="product-img"></div>
+          <div class="product-title">Programa Fitness</div>
+          <div class="price">$27.76</div>
+        </div>
+        <div class="product-card">
+          <div class="product-img"></div>
+          <div class="product-title">Aumento de glúteos</div>
+          <div class="price">$27.76</div>
+        </div>
+        <div class="product-card">
+          <div class="product-img"></div>
+          <div class="product-title">Pérdida de peso</div>
+          <div class="price">$27.76</div>
+        </div>
+        <div class="product-card">
+          <div class="product-img"></div>
+          <div class="product-title">Clases guiadas</div>
+          <div class="price">$27.76</div>
+        </div>
+      </div>
+
+      <div class="see-more">
+        <a class="btn">Ver más</a>
+      </div>
+    </section>
+
+    <!-- RECETAS -->
+    <section>
+      <div class="section-title">
+        <h2>Recetas saludables</h2>
+      </div>
+
+      <div class="products-grid">
+        <div class="product-card">
+          <div class="product-img"></div>
+          <div class="product-title">Postres con proteína</div>
+          <div class="price">$16.63</div>
+        </div>
+        <div class="product-card">
+          <div class="product-img"></div>
+          <div class="product-title">100 recetas saludables</div>
+          <div class="price">$16.63</div>
+        </div>
+        <div class="product-card">
+          <div class="product-img"></div>
+          <div class="product-title">Bebidas saludables</div>
+          <div class="price">$16.63</div>
+        </div>
+        <div class="product-card">
+          <div class="product-img"></div>
+          <div class="product-title">Recetario fertilidad</div>
+          <div class="price">$16.63</div>
+        </div>
+      </div>
+
+      <div class="see-more">
+        <a class="btn">Ver más</a>
+      </div>
+    </section>
+
+    <!-- NEWSLETTER -->
+    <div class="newsletter">
+      <p>
+        Sé el primero en conocer nuestras nuevas colecciones, promociones
+        exclusivas y más.
+      </p>
+      <input type="email" placeholder="Tu correo electrónico" />
+      <a class="btn">Inscribirme</a>
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+      <div class="footer-grid">
+        <div>
+          <h4>Jousfit</h4>
+          <ul>
+            <li>Inicio</li>
+            <li>Nosotros</li>
+            <li>Tienda</li>
+          </ul>
+        </div>
+        <div>
+          <h4>Legal</h4>
+          <ul>
+            <li>Aviso de Privacidad</li>
+            <li>Términos y Condiciones</li>
+            <li>Pagos y Envíos</li>
+          </ul>
+        </div>
+        <div>
+          <h4>Tu cuenta</h4>
+          <ul>
+            <li>Acceder</li>
+            <li>Mis pedidos</li>
+          </ul>
+        </div>
+        <div>
+          <h4>Contacto</h4>
+          <ul>
+            <li>México</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        © 2023 Jousfit. Todos los derechos reservados.
+      </div>
+    </footer>
+    <!-- CHATWOOT WIDGET – PRUEBAS (BLINDADO) -->
+    <script>
+      (function () {
+        const ENV = "test"; // SOLO PRUEBAS
+        const LOCK_KEY = "cw_initialized";
+        const BASE_URL = "https://jousfit-chatwoot.q3fy2l.easypanel.host";
+        const TOKEN = "FEBoriwkW1Wis6tEc22qtwgd";
+
+        if (sessionStorage.getItem(LOCK_KEY)) {
+          ENV === "test" && console.log("[Chatwoot] Ya inicializado (lock)");
+          return;
+        }
+
+        if (window.chatwootSDK) {
+          sessionStorage.setItem(LOCK_KEY, "true");
+          ENV === "test" && console.log("[Chatwoot] SDK ya presente");
+          return;
+        }
+
+        if (document.querySelector("script[data-chatwoot]")) {
+          ENV === "test" && console.log("[Chatwoot] Script ya inyectado");
+          return;
+        }
+
+        const script = document.createElement("script");
+        script.src = BASE_URL + "/packs/js/sdk.js";
+        script.async = true;
+        script.defer = true;
+        script.setAttribute("data-chatwoot", "true");
+
+        script.onload = function () {
+          if (!window.chatwootSDK) return;
+
+          window.chatwootSDK.run({
+            websiteToken: TOKEN,
+            baseUrl: BASE_URL,
+          });
+
+          sessionStorage.setItem(LOCK_KEY, "true");
+          ENV === "test" &&
+            console.log("[Chatwoot] Inicializado correctamente");
+        };
+
+        script.onerror = function () {
+          console.warn("[Chatwoot] Error cargando SDK");
+        };
+
+        document.head.appendChild(script);
+
+        // SPA / visibility safe
+        document.addEventListener("visibilitychange", () => {
+          if (document.visibilityState === "visible") {
+            ENV === "test" &&
+              console.log("[Chatwoot] Página visible (sin reiniciar)");
+          }
+        });
+      })();
+    </script>
+  </body>
+</html>
