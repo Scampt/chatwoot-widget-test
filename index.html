@@ -419,60 +419,19 @@
     </footer>
     <!-- CHATWOOT WIDGET – PRUEBAS (BLINDADO) -->
     <script>
-      (function () {
-        const ENV = "test"; // SOLO PRUEBAS
-        const LOCK_KEY = "cw_initialized";
-        const BASE_URL = "https://chat.jousfit.com";
-        const TOKEN = "FEBoriwkW1Wis6tEc22qtwgd";
-
-        if (sessionStorage.getItem(LOCK_KEY)) {
-          ENV === "test" && console.log("[Chatwoot] Ya inicializado (lock)");
-          return;
-        }
-
-        if (window.chatwootSDK) {
-          sessionStorage.setItem(LOCK_KEY, "true");
-          ENV === "test" && console.log("[Chatwoot] SDK ya presente");
-          return;
-        }
-
-        if (document.querySelector("script[data-chatwoot]")) {
-          ENV === "test" && console.log("[Chatwoot] Script ya inyectado");
-          return;
-        }
-
-        const script = document.createElement("script");
-        script.src = BASE_URL + "/packs/js/sdk.js";
-        script.async = true;
-        script.defer = true;
-        script.setAttribute("data-chatwoot", "true");
-
-        script.onload = function () {
-          if (!window.chatwootSDK) return;
-
-          window.chatwootSDK.run({
-            websiteToken: TOKEN,
-            baseUrl: BASE_URL,
-          });
-
-          sessionStorage.setItem(LOCK_KEY, "true");
-          ENV === "test" &&
-            console.log("[Chatwoot] Inicializado correctamente");
-        };
-
-        script.onerror = function () {
-          console.warn("[Chatwoot] Error cargando SDK");
-        };
-
-        document.head.appendChild(script);
-
-        document.addEventListener("visibilitychange", () => {
-          if (document.visibilityState === "visible") {
-            ENV === "test" &&
-              console.log("[Chatwoot] Página visible (sin reiniciar)");
-          }
-        });
-      })();
-    </script>
+  (function(d,t) {
+    var BASE_URL="https://chat.jousfit.com";
+    var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+    g.src=BASE_URL+"/packs/js/sdk.js";
+    g.async = true;
+    s.parentNode.insertBefore(g,s);
+    g.onload=function(){
+      window.chatwootSDK.run({
+        websiteToken: 'FEBoriwkW1Wis6tEc22qtwgd',
+        baseUrl: BASE_URL
+      })
+    }
+  })(document,"script");
+</script>
   </body>
 </html>
