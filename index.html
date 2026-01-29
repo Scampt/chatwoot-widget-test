@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
@@ -422,7 +422,7 @@
       (function () {
         const ENV = "test"; // SOLO PRUEBAS
         const LOCK_KEY = "cw_initialized";
-        const BASE_URL = "https://jousfit-chatwoot.q3fy2l.easypanel.host";
+        const BASE_URL = "https://chat.jousfit.com";
         const TOKEN = "FEBoriwkW1Wis6tEc22qtwgd";
 
         if (sessionStorage.getItem(LOCK_KEY)) {
@@ -466,7 +466,6 @@
 
         document.head.appendChild(script);
 
-        // SPA / visibility safe
         document.addEventListener("visibilitychange", () => {
           if (document.visibilityState === "visible") {
             ENV === "test" &&
